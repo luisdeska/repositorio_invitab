@@ -1,0 +1,20 @@
+.navbar-custom{
+    background-color: #9D2449;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: #B38E5D;
+}
+
+.offcanvas{
+    background-color: #B38E5D;
+}
+
+.btn-brown:hover{
+    background-color: #B38E5D;
+}

@@ -3,7 +3,7 @@
 @section('body')
 
 
-<div class="container-fluid row align-items-center justify-content-center" style="margin-top: 60px;">
+<div class="container-fluid row align-items-center justify-content-center" style="margin-top: 100px;">
 <div class="container-fluid row justify-content-center" style="width: 800px">
 	<form>
     <input class="form-control" data-table="table_id" type="text" 
@@ -16,12 +16,25 @@
             <tr>
                 <th>Codigo</th>
                 <th>Nombre del documento</th>
+                <th>Descripción</th>
+                <th>Sección</th>
+                <th>Serie</th>
                 <th>Area</th>
-                <th>Fecha</th>
-                <th>Responsable</th>
+                <th>Expediente</th>
+                <th>Año</th>
+                <th>Sección especifica</th>
+                <th>Sección común</th>
             </tr>
         </thead>
-    <tbody id="tbody"></tbody>
+        <tbody id="tbody">
+            <tr>
+                <td>1</td>
+                <td><a style="text-decoration: none; color: inherit;" href="/informacion">Documento 1</a></td>
+                <td>Informatica</td>
+                <td>17/06/2024</td>
+                <td>Persona 1</td>
+            </tr>
+        </tbody>
 </table>
 </div>
 </div>
