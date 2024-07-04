@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(ViewsController::class)->group(function(){
     Route::get("/", "viewLogin")->name("viewLogin");
-    Route::get("/index", "viewIndex")->name("viewIndex");
-    Route::get("/cargar", "viewLoad");
-    Route::get("/editar", "viewEdit");
-    Route::get("/informacion", "viewVer");
-    Route::get("/perfil", "viewProfile");
+    Route::get("/index", "viewIndex")->middleware("auth")->name("viewIndex");
+    Route::get("/cargar", "viewLoad")->middleware("auth");
+    Route::get("/editar", "viewEdit")->middleware("auth");
+    Route::get("/informacion", "viewVer")->middleware("auth");
+    Route::get("/perfil", "viewProfile")->middleware("auth");
+    Route::get("/registrar", "viewRegister")->middleware("auth");
 });
 
 Route::controller(DocumentsController::class)->group(function(){
@@ -23,6 +24,7 @@ Route::controller(DocumentsController::class)->group(function(){
 });
 
 Route::controller(loginController::class)->group(function(){
-    Route::post("/login", "loginSession")->name("login");
+    Route::post("/validatelogin", "loginSession")->name("validatelogin");
     Route::get("/cerrarSession", "cerrarSession")->name("cerrarSession");
+    Route::post("/registro", "registro")->name('registro');
 });

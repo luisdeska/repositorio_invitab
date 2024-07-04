@@ -29,4 +29,8 @@ class ViewsController extends Controller
     function viewProfile(){
         return view('perfil', ['titulo'=>'INVITAB | Perfil']);
     }
+
+    function viewRegister(){
+        return view('registrarUser', ['titulo' => 'INVITAB | Registro']);
+    }
 }

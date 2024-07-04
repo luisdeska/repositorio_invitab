@@ -33,27 +33,31 @@
 
         <div class="text-center row align-items-center justify-content-center vh-100 container-fluid">
             
-        <form action="{{route('validatelogin')}}" method="POST">
+        <form action="{{route('registro')}}" method="POST">
             @csrf
             <img src="{{ asset('/img/logo-ivt2.png') }}" alt="Logo" style="width:20%; height:20%;">
                 <div>
-                    <h1>INICIAR SESION</h1>
-                    <h5 class="mt-4">Rellena los campos para iniciar sesion</h5>
+                    <h1>Registrar nuevo usuario</h1>
+                    <h5 class="mt-4">Ingresa los datos del usuario nuevo</h5>
                 </div>
             <div>  
                 <label for="email" class="form-label p-1">Usuario</label>
                 <div><input class="form-control-sm" type="text" name="user" id="user" required></div>
-                
+            </div>
+            <div>  
+                <label for="email" class="form-label p-1">Nombre</label>
+                <div><input class="form-control-sm" type="text" name="nombre" id="nombre" required></div>
+            </div>
+            <div>  
+                <label for="email" class="form-label p-1">Apellido</label>
+                <div><input class="form-control-sm" type="text" name="apellido" id="apellido" required></div>
             </div>
             <div>
                 <label for="pass" id="lbl" class="form-label p-1">Contraseña</label>
                 <div><input class="form-control-sm" type="password" name="password" id="password" required></div>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-outline-dark">Entrar</button>
-            </div>
-            <div class="form-text">
-                <p>Recuerda ingresar tus datos correctamente</p>
+                <button type="submit" class="btn btn-outline-dark">Guardar</button>
             </div>
             
         </form>
