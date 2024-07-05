@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class loginController extends Controller
 {
@@ -19,6 +20,8 @@ class loginController extends Controller
             "password" => $request->password,
         ];
 
+        
+
         if (Auth::attempt(['usuario' => $credentials['usuario'], 'password' => $credentials['password']])){
             $request->session()->regenerate();
             return redirect()->intended(route('viewIndex'));
@@ -26,41 +29,28 @@ class loginController extends Controller
             return redirect()->route('viewLogin');
         }
 
-        /*
-        $user = User::where("usuario", $request->user)->first();
-            if($user && ($request->password ==  $user->password)){
-                
-                    $request->session()->flush();
-                    session([
-                        "id" => $user["id"],
-                        "nombre" => $user["nombre"],
-                        "usuario" => $user["user"],
-                        "apellido" => $user["apellido"],
-                    ]);
-
-                    $data= $request->session()->all();
-                    return redirect()->route('viewIndex')->with('dataUser', $request->session()->all());
-                
-            }
-            else{
-                return redirect()->route("viewLogin");
-            }
-            */
     }
 
     public function registro(Request $request){
 
+        $datosvalidados = $request->validate([
+            'usuario' => 'required|unique:users',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'password' =>'required',
+        ]);
+
         $user = new User();
-        $user->usuario= $request->user;
-        $user->nombre = $request->nombre;
-        $user->apellido = $request->apellido;
-        $user->password= Hash::make($request->password);
+        $user->usuario= $datosvalidados['usuario'];
+        $user->nombre = $datosvalidados['nombre'];
+        $user->apellido = $datosvalidados['apellido'];
+        $user->password= Hash::make($datosvalidados['password']);
 
         $user->save();
 
-        Auth::login($user);
-        return redirect(route('index'));
+        Log::info('Usuario guardado');
 
+        return redirect(route('index'));
     }
 
     public function cerrarSession(Request $request){

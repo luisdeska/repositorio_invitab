@@ -41,12 +41,12 @@
                     <h5 class="mt-4">Rellena los campos para iniciar sesion</h5>
                 </div>
             <div>  
-                <label for="email" class="form-label p-1">Usuario</label>
-                <div><input class="form-control-sm" type="text" name="user" id="user" required></div>
+                <label for="user" class="form-label p-1">Usuario</label>
+                <div><input class="form-control-sm" type="text" name="user" id="user" value="{{old('user')}}"></div>
                 
             </div>
             <div>
-                <label for="pass" id="lbl" class="form-label p-1">Contraseña</label>
+                <label for="password" id="lbl" class="form-label p-1">Contraseña</label>
                 <div><input class="form-control-sm" type="password" name="password" id="password" required></div>
             </div>
             <div class="mt-3">

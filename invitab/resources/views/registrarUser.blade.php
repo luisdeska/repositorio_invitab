@@ -41,15 +41,20 @@
                     <h5 class="mt-4">Ingresa los datos del usuario nuevo</h5>
                 </div>
             <div>  
-                <label for="email" class="form-label p-1">Usuario</label>
-                <div><input class="form-control-sm" type="text" name="user" id="user" required></div>
+                <label for="user" class="form-label p-1">Usuario</label>
+                <div><input class="form-control-sm" type="text" name="user" id="user" required value="{{old('user')}}"></div>
+                @error('user')
+                    <p class="text-red-400">{{$message}}</p>
+                @enderror
             </div>
+
+            
             <div>  
-                <label for="email" class="form-label p-1">Nombre</label>
+                <label for="nombre" class="form-label p-1">Nombre</label>
                 <div><input class="form-control-sm" type="text" name="nombre" id="nombre" required></div>
             </div>
             <div>  
-                <label for="email" class="form-label p-1">Apellido</label>
+                <label for="apellido" class="form-label p-1">Apellido</label>
                 <div><input class="form-control-sm" type="text" name="apellido" id="apellido" required></div>
             </div>
             <div>
