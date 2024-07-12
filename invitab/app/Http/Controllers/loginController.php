@@ -24,6 +24,14 @@ class loginController extends Controller
 
         if (Auth::attempt(['usuario' => $credentials['usuario'], 'password' => $credentials['password']])){
             $request->session()->regenerate();
+
+            $query = User::where('usuario', $credentials['usuario'])->first();
+
+            session([
+                'usuario' => $query->usuario,
+                'nombre' => $query->nombre,
+                'apellido' => $query->apellido
+            ]);
             return redirect()->intended(route('viewIndex'));
         }else{
             return redirect()->route('viewLogin');
@@ -47,8 +55,6 @@ class loginController extends Controller
         $user->password= Hash::make($datosvalidados['password']);
 
         $user->save();
-
-        Log::info('Usuario guardado');
 
         return redirect(route('index'));
     }

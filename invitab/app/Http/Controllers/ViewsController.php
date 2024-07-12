@@ -26,8 +26,9 @@ class ViewsController extends Controller
         return view('verArchivo', ['titulo'=>'INVITAB | VER ARCHIVO']);
     }
 
-    function viewProfile(){
-        return view('perfil', ['titulo'=>'INVITAB | Perfil']);
+    function viewProfile(Request $request){
+        $data = $request->session()->all();
+        return view('perfil', ['titulo'=>'INVITAB | Perfil', 'dataUser'=>$data]);
     }
 
     function viewRegister(){

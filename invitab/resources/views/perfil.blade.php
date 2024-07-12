@@ -14,11 +14,10 @@
 
 </div>
 <div class="container formulario">
-    
         <div class="col-sm-6">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="" readonly> 
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $dataUser['nombre'] }}" readonly> 
             </div>        
         </div>
         <div class="col-sm-6">
